@@ -1,4 +1,4 @@
-def kureck_eulers_criterion(a, p):
+def eulers_criterion(a, p):
     # a**((p-1)/2) = 1 % p
     # return "YES" if a**((p-1)/2) % p == 1 else "NO"
     return "YES" if pow(a, (p-1)/2, p) in (0, 1) else "NO"
@@ -10,4 +10,4 @@ for n in xrange(0, n):
     data.append([int(x) for x in values.split(" ")])
 
 for d in data:
-    print kureck_eulers_criterion(d[0], d[1])
+    print eulers_criterion(d[0], d[1])
