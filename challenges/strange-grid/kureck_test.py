@@ -1,5 +1,4 @@
-from fernando import strange_grid
-# from kureck import strange_grid
+from kureck import strange_grid
 
 print strange_grid(6, 3)
 

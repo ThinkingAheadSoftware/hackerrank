@@ -3,7 +3,6 @@ def maximum_subarray(L):
     max_sum_pos = sum([x for x in L if x > 0])
     best_sum = 0
 
-    # import ipdb; ipdb.set_trace()
     for i, x in enumerate(L):
         val = curr_sum + x
         if val > 0:
