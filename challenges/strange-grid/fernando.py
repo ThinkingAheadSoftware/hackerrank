@@ -1,6 +1,10 @@
 def strange_grid(row, col):
-    dezena, unidade = ((row//2 * 10 - 10), (col-1) * 2 + 1) if (row % 2 == 0) else ((row//2 * 10 - 5), (col-1)*2)
-    return dezena+unidade
+    num_sem_unidade = (row - 1)//2 * 10
+    unidade = ((col - 1) * 2)
+    if ((row - 1) % 2 == 1):
+        unidade += 1
+
+    return (num_sem_unidade + unidade)
 
 
 def main():
