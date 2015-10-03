@@ -4,8 +4,6 @@ Euler project 12
 
 See the instructions in pdf file
 """
-
-import math
 from ctypes import c_ubyte
 
 
@@ -62,61 +60,15 @@ def prime_factorisation(number, prime_array):
     return ndivisors
 
 
-# def divisors_n(n, start):
-#     if n == 1:
-#         return 1
-#     for i in xrange(start, int(math.ceil(math.sqrt(n)))+1):
-#         if n % i == 0:
-#             cnt = 1
-#             while n % i == 0:
-#                 n /= i
-#                 cnt += 1
-#             return divisors(n, i+1) * cnt
-#     return 2
-
-# def divisors(n):
-#     number_of_factors = 0
-#     for i in xrange(1, int(math.ceil(math.sqrt(n)))+1):
-#         if n % i == 0:
-#             number_of_factors +=2
-#         if i*i==n:
-#             number_of_factors -=1
-#     return number_of_factors
-
-# def pFactors(n):
-#         """Finds the prime factors of 'n'"""
-#         from math import sqrt
-#         pFact, limit, check, num = [], int(sqrt(n)) + 1, 2, n
-#         if n == 1: return [1]
-#         for check in range(2, limit):
-#              while num % check == 0:
-#                 pFact.append(check)
-#                 num /= check
-#         if num > 1:
-#           pFact.append(num)
-#         return pFact
-
-# for i in range(1,1000):
-#         print pFactors(i)
-
-# def max(limit):
-#     for n in xrange(1, 1000000):
-#         Tn = (n*(n+1)) / 2
-#         if n % 2 == 0:
-#             cnt = divisors(n/2) * divisors(n+1)
-#         else:
-#             cnt = divisors(n) * divisors((n+1)/2)
-#         if cnt >= limit:
-#             return ((1 + n) * n) / 2
-
-
-def main():
-    prime_array = sieve_erast(75000)
+def highly_divisible_triangular(number, prime_array):
+    """
+    Receive a number to find the highly divisible triangular number.
+    """
     counter = 0
     i = 2
-    dn1 = 2
-    dn2 = 2
-    while counter < 500:
+    dn1 = 1
+    dn2 = 1
+    while counter < number:
         if i % 2 == 0:
             dn2 = prime_factorisation(i+1, prime_array)
             counter = dn2 * dn1
@@ -124,10 +76,17 @@ def main():
             dn1 = prime_factorisation((i+1)/2, prime_array)
             counter = dn2 * dn1
         i += 1
+        print "{2} * {3} = {0} < {1}".format(counter, number, dn1, dn2)
 
-    print i * (i - 1) / 2
-    # print prime_factorisation(500, prime_array)
+    return i * (i - 1) / 2
 
+
+def main():
+    prime_array = sieve_erast(75000)
+    ntests = int(raw_input())
+    for i in xrange(ntests):
+        ndivisors = int(raw_input())
+        print highly_divisible_triangular(ndivisors, prime_array)
 
 if __name__ == "__main__":
     main()
