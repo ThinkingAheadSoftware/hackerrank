@@ -40,6 +40,8 @@ def sieve_erast(upper_limit):
         if not bit_array[i]:
             prime_array.append(2*i + 1)
 
+    return prime_array
+
 
 def main():
     """
