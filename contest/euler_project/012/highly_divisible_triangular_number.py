@@ -68,15 +68,16 @@ def highly_divisible_triangular(number, prime_array):
     i = 2
     dn1 = 1
     dn2 = 1
-    while counter < number:
+    while counter <= number:
         if i % 2 == 0:
             dn2 = prime_factorisation(i+1, prime_array)
             counter = dn2 * dn1
+            # print "i%2[{4}]={2} * {3} = {0} < {1}".format(counter, number, dn1, dn2, i+1)
         else:
             dn1 = prime_factorisation((i+1)/2, prime_array)
             counter = dn2 * dn1
+            # print "i%2[{4}]={2} * {3} = {0} < {1}".format(counter, number, dn1, dn2,(i+1)/2)
         i += 1
-        print "{2} * {3} = {0} < {1}".format(counter, number, dn1, dn2)
 
     return i * (i - 1) / 2
 
