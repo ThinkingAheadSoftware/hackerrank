@@ -1,3 +1,4 @@
+# https://www.hackerrank.com/challenges/ctci-ransom-note
 # This solution has a timeout
 # def ransom_note(magazine, rasom):
 #     for r in rasom:
