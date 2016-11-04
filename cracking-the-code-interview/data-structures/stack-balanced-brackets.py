@@ -38,6 +38,12 @@ def is_matched(expression):
         for e in expression:
             if counterparts[e] == stack[-1]:
                 stack.pop()
+            else:
+                stack.append(e)
+    if not stack:
+        return True
+    else:
+        return False
 
 t = int(input().strip())
 for a0 in range(t):
